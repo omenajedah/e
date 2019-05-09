@@ -50,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_nomor_nik">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_nama_lengkap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/info_namalengkap"
@@ -68,6 +69,7 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/et_alamat_lengkap"
             android:hint="@string/info_alamat"
             android:inputType="text"
             app:hintEnabled="true" />
@@ -84,6 +86,7 @@
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/et_tempat_lahir"
             android:hint="@string/info_tempatlahir"
             android:inputType="text"
             app:hintEnabled="true" />
@@ -104,7 +107,6 @@
         android:id="@+id/tv_tanggallahir2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
         android:text="Belum diatur"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
@@ -177,6 +179,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_pendidikan">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_pekerjaan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/info_pekerjaan"

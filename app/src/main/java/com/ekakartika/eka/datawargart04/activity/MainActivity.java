@@ -2,7 +2,6 @@ package com.ekakartika.eka.datawargart04.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -10,19 +9,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.ekakartika.eka.datawargart04.DataWargaAdapter;
 import com.ekakartika.eka.datawargart04.R;
 import com.ekakartika.eka.datawargart04.database.DataSource;
-import com.ekakartika.eka.datawargart04.database.TableDataWarga;
 import com.ekakartika.eka.datawargart04.model.DataWarga;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String KEY_NOMORKTP = "KEY_NOMORKTP";
 
     private ListView listView;
     private DataWargaAdapter dataWargaAdapter;
@@ -51,8 +50,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dataSource = DataSource.getInstance(this);
-        refreshList();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshList();
     }
 
     private void refreshList() {
@@ -72,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
                         switch (item) {
                             case 0:
                                 Intent i = new Intent(getApplicationContext(), LihatDataActivity.class);
-                                i.putExtra("nomorktp", selection.getNomorKTP());
+                                i.putExtra(KEY_NOMORKTP, selection.getNomorKTP());
                                 startActivity(i);
                                 break;
                             case 1:
                                 Intent in = new Intent(getApplicationContext(), UpdateDataActivity.class);
-                                in.putExtra("nomorktp", selection.getNomorKTP());
+                                in.putExtra(KEY_NOMORKTP, selection.getNomorKTP());
                                 startActivity(in);
                                 break;
                             case 2:

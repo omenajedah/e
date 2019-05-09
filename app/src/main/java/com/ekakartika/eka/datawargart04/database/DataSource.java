@@ -85,6 +85,58 @@ public class DataSource {
         close();
     }
 
+    public DataWarga select(String nomorKTP) {
+        open();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TableDataWarga.NAME +
+                " WHERE " + TableDataWarga.COLUMN_NOMORKTP + "=?", new String[]{nomorKTP});
+        DataWarga dataWarga = null;
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            dataWarga = new DataWarga();
+            dataWarga.setNomorKTP(cursor.getString(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_NOMORKTP)
+            ));
+            dataWarga.setNamaLengkap(cursor.getString(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_NAMALENGKAP)
+            ));
+            dataWarga.setAlamatLengkap(cursor.getString(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_ALAMATLENGKAP)
+            ));
+            dataWarga.setTempatLahir(cursor.getString(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_TEMPATLAHIR)
+            ));
+            try {
+                dataWarga.setTanggalLahir(
+                        Utils.parceDate(cursor.getString(
+                                cursor.getColumnIndex(TableDataWarga.COLUMN_TANGGALLAHIR)
+                        ), "yyyy-MM-dd")
+                );
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            dataWarga.setJenisKelamin(cursor.getInt(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_JENISKELAMIN)
+            ));
+            dataWarga.setPendidikan(cursor.getInt(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_PENDIDIKAN)
+            ));
+            dataWarga.setPekerjaan(cursor.getString(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_PEKERJAAN)
+            ));
+            dataWarga.setAgama(cursor.getInt(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_AGAMA)
+            ));
+            dataWarga.setStatusPerkawinan(cursor.getInt(
+                    cursor.getColumnIndex(TableDataWarga.COLUMN_STATUSPERKAWINAN)
+            ));
+        }
+
+        cursor.close();
+        close();
+        return dataWarga;
+    }
+
     public List<DataWarga> select() {
         open();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TableDataWarga.NAME, null);
@@ -110,7 +162,7 @@ public class DataSource {
                     dataWarga.setTanggalLahir(
                             Utils.parceDate(cursor.getString(
                                     cursor.getColumnIndex(TableDataWarga.COLUMN_TANGGALLAHIR)
-                                    ), "yyyy-MM-dd")
+                            ), "yyyy-MM-dd")
                     );
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -136,6 +188,7 @@ public class DataSource {
 
 
         cursor.close();
+        close();
         return items;
     }
 

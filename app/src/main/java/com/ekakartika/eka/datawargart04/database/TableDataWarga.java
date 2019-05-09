@@ -1,8 +1,5 @@
 package com.ekakartika.eka.datawargart04.database;
 
-/**
- * Created by Firman on 5/8/2019.
- */
 public interface TableDataWarga {
     String NAME = "tbl_datawarga";
 

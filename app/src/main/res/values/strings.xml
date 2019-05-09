@@ -19,5 +19,6 @@
     <string name="info_pendidikan">Pendidikan</string>
     <string name="info_pekerjaan">Pekerjaan</string>
     <string name="info_status">Status Pernikahan</string>
+    <string name="btn_batal">Batal</string>
 
 </resources>
