@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LihatDataActivity">
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/architects_daughter"
+        android:text="@string/nama_datalihat"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout_nomor_nik"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_data"
+        app:layout_constraintStart_toStartOf="@+id/tv_data"
+        app:layout_constraintTop_toBottomOf="@+id/tv_data">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_nomor_nik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/info_nomor_nik"
+            android:inputType="number"
+            app:hintEnabled="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout_namalengkap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_nomor_nik"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_nomor_nik"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_nomor_nik">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/info_namalengkap"
+            android:inputType="text"
+            app:hintEnabled="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout_alamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/textInputLayout_namalengkap"
+        app:layout_constraintStart_toStartOf="@id/textInputLayout_namalengkap"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_namalengkap">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/info_alamat"
+            android:inputType="text"
+            app:hintEnabled="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout_tempatlahir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_alamat"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_alamat"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_alamat">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/info_tempatlahir"
+            android:inputType="text"
+            app:hintEnabled="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_tanggallahir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/info_tanggallahir"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_tempatlahir"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_tempatlahir" />
+
+    <TextView
+        android:id="@+id/tv_tanggallahir2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Belum diatur"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_tanggallahir"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tanggallahir" />
+
+    <TextView
+        android:id="@+id/tv_jeniskelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/info_jeniskelamin"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_tempatlahir"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_tanggallahir2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_tempatlahir" />
+
+    <Spinner
+        android:id="@+id/spinner_jeniskelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/jenis_kelamin"
+        app:layout_constraintEnd_toEndOf="@+id/tv_jeniskelamin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_jeniskelamin"
+        app:layout_constraintTop_toBottomOf="@+id/tv_jeniskelamin" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tv_tanggallahir2, spinner_jeniskelamin"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="511dp" />
+
+    <TextView
+        android:id="@+id/tv_pendidikan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/info_pendidikan"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrier" />
+
+    <Spinner
+        android:id="@+id/spinner_pendidikan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/pendidikan"
+        app:layout_constraintEnd_toEndOf="@+id/tv_pendidikan"
+        app:layout_constraintStart_toStartOf="@+id/tv_pendidikan"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pendidikan" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout_pekerjaan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_pendidikan"
+        app:layout_constraintStart_toStartOf="@+id/spinner_pendidikan"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_pendidikan">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/info_pekerjaan"
+            android:inputType="text"
+            app:hintEnabled="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_agama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/info_agama"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_pekerjaan"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_pekerjaan" />
+
+    <Spinner
+        android:id="@+id/spinner_agama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/agama"
+        app:layout_constraintStart_toStartOf="@+id/tv_agama"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agama" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/info_status"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_pekerjaan"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/spinner_agama"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_pekerjaan" />
+
+    <Spinner
+        android:id="@+id/spinner_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="spinner_agama, spinner_status"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="511dp" />
+
+</android.support.constraint.ConstraintLayout>

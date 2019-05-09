@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jenis_kelamin">
+        <item>Pria</item>
+        <item>Wanita</item>
+    </string-array>
+
+    <string-array name="agama">
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Katolik</item>
+        <item>Hindu</item>
+        <item>Buddha</item>
+    </string-array>
+
+    <string-array name="pendidikan">
+        <item>Tidak/Belum Sekolah</item>
+        <item>SD/Sederajat</item>
+        <item>SLTP/Sederajat</item>
+        <item>SLTA/Sederajat</item>
+        <item>DiplomaIV/Sastra I</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Kawin</item>
+        <item>Belum Kawin</item>
+    </string-array>
+</resources>
